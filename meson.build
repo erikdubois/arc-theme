@@ -10,11 +10,13 @@ project(
 
 fs = import('fs')
 
+theme_name = get_option('theme_name')
+
 variant_name = {
-  'light' : (get_option('transparency') ? 'Arc' : 'Arc-solid'),
-  'darker' : (get_option('transparency') ? 'Arc-Darker' : 'Arc-Darker-solid'),
-  'dark' : (get_option('transparency') ? 'Arc-Dark' : 'Arc-Dark-solid'),
-  'lighter' : (get_option('transparency') ? 'Arc-Lighter' : 'Arc-Lighter-solid'),
+  'light' : (get_option('transparency') ? theme_name : theme_name + '-solid'),
+  'darker' : (get_option('transparency') ? theme_name + '-Darker' : theme_name + '-Darker-solid'),
+  'dark' : (get_option('transparency') ? theme_name + '-Dark' : theme_name + '-Dark-solid'),
+  'lighter' : (get_option('transparency') ? theme_name + '-Lighter' : theme_name + '-Lighter-solid'),
 }
 
 prefix = get_option('prefix')
@@ -63,6 +65,7 @@ foreach theme : ['gnome-shell', 'gtk3', 'gtk4']
 endforeach
 
 install_file = meson.source_root() / 'meson/install-file.py'
+recolor_svg = find_program(meson.source_root() / 'meson/recolor-svg.py')
 
 meson.add_dist_script('meson/render-assets.py')
 

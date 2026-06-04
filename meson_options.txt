@@ -20,6 +20,20 @@ option(
 )
 
 option(
+  'accent',
+  type: 'string',
+  value: '#5294e2',
+  description: 'Accent / selection color as a hex value (e.g. #566282)',
+)
+
+option(
+  'theme_name',
+  type: 'string',
+  value: 'Arc',
+  description: 'Base name for the generated theme (e.g. Arc-Dali)',
+)
+
+option(
   'cinnamon_version',
   type: 'string',
   description: 'Build Cinnamon theme for specific version',

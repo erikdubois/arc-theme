@@ -12,6 +12,8 @@ Or download and extract a [snapshot](https://github.com/jnsh/arc-theme/archive/m
 
 #### Build dependencies
 
+sudo pacman -S --needed meson sassc oxipng
+
 The following packages are always required for building the theme:
 * `meson` version 0.53.0 or later
 

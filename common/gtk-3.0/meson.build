@@ -24,6 +24,7 @@ input_scss_dark = configure_file(
   configuration : {
     'variant' : 'dark',
     'transparency' : get_option('transparency').to_string(),
+    'accent' : get_option('accent'),
     'sass_path' : meson.current_source_dir() / 'sass',
   }
 )
@@ -50,6 +51,7 @@ foreach variant : get_option('variants')
       configuration : {
         'variant' : variant,
         'transparency' : get_option('transparency').to_string(),
+        'accent' : get_option('accent'),
         'sass_path' : meson.current_source_dir() / 'sass',
       }
     )

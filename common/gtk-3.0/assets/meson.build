@@ -1,4 +1,10 @@
-assets_svg = 'assets.svg'
+# recolor the accent gradient stop according to the `accent` build option
+assets_svg = custom_target(
+  'gtk3-assets-svg',
+  input : 'assets.svg',
+  output : 'assets-accent.svg',
+  command : [recolor_svg, '@INPUT@', '@OUTPUT@', '#5294e2=' + get_option('accent')],
+)
 
 gtk3_assets = []
 gtk3_hidpi_assets = []
